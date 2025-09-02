@@ -39,7 +39,7 @@ first_number = int(input("Enter the First number: "))
 second_number = int(input("Enter the Second number: "))
 third_number = int(input("Enter the Third number: "))
 if first_number >= second_number and first_number >= third_number:
-    print("The Greatest Number is:", first_number)
+    print("The greatest Number is:", first_number)
 elif second_number >= first_number and second_number >= third_number:
     print("The greatest number is:", second_number)
 else:
@@ -51,3 +51,4 @@ if a % 7 == 0:
     print("Multiple of 7")
 else:
     print("Not a multiple")
+
