@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 class LoginPage:
     def __init__(self,page:Page):
         self.page = page
@@ -19,6 +19,12 @@ class LoginPage:
         self.profile_menu.click()
         self.logout_link.click()
         self.confirm_logout_button.click()
+        #self.page.wait_for_timeout(5000)
 
     def is_logged_out(self):
-        return expect(self.SignMeIn_button).to_be_visible()
+        return self.SignMeIn_button.is_visible()
+
+    def is_error_message_displayed(self, expected_message: str):
+        # Here 'locator' is just a variable name holding the locator object
+        locator = self.page.locator(f"text={expected_message}")
+        return locator.is_visible()
