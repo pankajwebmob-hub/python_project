@@ -1,0 +1,22 @@
+# Virtual environment folder (local dependencies)
+venv/
+
+# PyCharm project settings
+.idea/
+
+# Python cache files and folders
+__pycache__/
+*.pyc
+
+# Sensitive credentials files
+credentials.json
+credentials.py
+
+# Test outputs and reports
+reports/
+screenshots/
+*.html
+
+# Other common ignores
+*.log
+*.tmp
