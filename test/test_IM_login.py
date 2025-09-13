@@ -9,8 +9,7 @@ def test_Valid_login(page: Page) -> None:
     login_page.navigate()
     login_page.enter_username(creds["username"])
     login_page.enter_password(creds["password"])
-    # login_page.enter_username("hsagar01")
-    # login_page.enter_password("Wpadmin@0001")
+
     login_page.click_login()
     login_page.click_logout()
     assert login_page.is_logged_out(), "Logout failed: Sign In button not visible"
