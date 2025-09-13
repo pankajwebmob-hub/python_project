@@ -2,12 +2,16 @@ from playwright.sync_api import Page
 class LoginPage:
     def __init__(self,page:Page):
         self.page = page
+        self.login_url = "https://testing.instimatch.ch"
         self.username_input = page.get_by_role("textbox", name="Enter your username")
         self.password_input = page.get_by_role("textbox", name="Enter your password")
         self.SignMeIn_button = page.get_by_role("button", name="Sign Me In")
         self.profile_menu = page.locator("#companyDetailsDropdown")
         self.logout_link = page.locator("a").filter(has_text="Log Out")
         self.confirm_logout_button = page.get_by_role("button", name="Yes")
+
+    def navigate (self):
+        self.page.goto(self.login_url)
 
     def enter_username(self, username: str):
         self.username_input.fill(username)
@@ -19,7 +23,7 @@ class LoginPage:
         self.profile_menu.click()
         self.logout_link.click()
         self.confirm_logout_button.click()
-        #self.page.wait_for_timeout(5000)
+
 
     def is_logged_out(self):
         return self.SignMeIn_button.is_visible()
